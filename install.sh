@@ -285,14 +285,15 @@ main() {
   verify_programs curl echo python cookiecutter git
 
   # MOTD message :)
-  echo "  _____     _             ${BLUE}_          _         ${NORMAL}"
-  echo " |_   _|__ | |___   _____${BLUE}| |    __ _| |__  ___ ${NORMAL}"
-  echo "   | |/ _ \| __\ \ / / __${BLUE}| |   / _\` | '_ \/ __|${NORMAL}"
-  echo "   | | (_) | |_ \ V /\__ \\${BLUE} |__| (_| | |_) \__ \\${NORMAL}"
-  echo "   |_|\___/ \__| \_/ |___/${BLUE}_____\__,_|_.__/|___/${NORMAL}"
+  echo "   ____                _${BLUE}    _                ${NORMAL}"
+  echo "  / ___|__ _ _ __ ___ | |${BLUE}  / \   _ __  _ __  ${NORMAL}"
+  echo " | |   / _\` | '__/ _ \| |${BLUE} / _ \ | '_ \| '_ \ ${NORMAL}"
+  echo " | |__| (_| | | | (_) | |${BLUE}/ ___ \| |_) | |_) |${NORMAL}"
+  echo "  \____\__,_|_|  \___/|_${BLUE}/_/   \_\ .__/| .__/ ${NORMAL}"
+  echo "                        ${BLUE}        |_|   |_|    ${NORMAL}"
   echo ""
   echo "This script will help you create your new Carol App."
-  echo "Just select which type of Carol App you want to create and answer the questions the script will ask about your new App."
+  echo "Just select which type of Carol App you want to create and answer the questions the script will ask about your new app."
   echo ""
 
   carol_app_types=( 'Online App' 'Batch App' 'Web App')
