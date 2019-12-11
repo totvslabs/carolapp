@@ -256,7 +256,7 @@ alert(){
 verify_programs(){
   for prog in $* ; do
     if [[ -z $(which "$prog") ]] ; then
-      alert "CarolApps needs [$prog] but this program cannot be found on this $os_uname machine"
+      alert "CarolApps needs [$prog] but this program cannot be found on this machine.\nPlease, check Carol App documentation how to install it."
       exit 1
     fi
   done
@@ -282,7 +282,7 @@ main() {
 
   umask g-w,o-w
 
-  verify_programs curl echo python cookiecutter git
+  verify_programs curl echo python cookiecutter git sss
 
   # MOTD message :)
   echo "  _____     _             ${BLUE}_          _         ${NORMAL}"
