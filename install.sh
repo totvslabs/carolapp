@@ -247,10 +247,28 @@ out() {
 
 confirm() { (($force)) && return 0; read -p "$1 [y/N] " -n 1; echo " "; [[ $REPLY =~ ^[Yy]$ ]];}
 
+success() {
+  green="$(tput setaf 2)"
+  normal="$(tput sgr0)"
+  if [[ $(echo -e '\xe2\x82\xac') == '€' ]] ; then
+    readonly char_succ="✔"
+  else
+    # no unicode chars if not supported
+    readonly char_succ="OK "
+  fi
+  out "${green}${char_succ}${normal}  $@"
+}
+
 alert(){
   red="$(tput setaf 1)"
   normal="$(tput sgr0)"
-  out "${red}!!${normal}: $@" >&2
+  if [[ $(echo -e '\xe2\x82\xac') == '€' ]] ; then
+    readonly char_alrt="➨"
+  else
+    # no unicode chars if not supported
+    readonly char_alrt="?? "
+  fi
+  out "${red}${char_alrt}${normal}: $@" >&2
 }
 
 verify_programs(){
@@ -282,7 +300,7 @@ main() {
 
   umask g-w,o-w
 
-  verify_programs curl echo python cookiecutter git
+  verify_programs curl echo python cookiecutter git xccc
 
   # MOTD message :)
   echo "   ____                _${BLUE}    _                ${NORMAL}"
@@ -311,7 +329,11 @@ main() {
       template='https://github.com/totvslabs/cookiecutter-carol-app-web'
     ;;
   esac
+
   cookiecutter $template
+
+  echo ""
+  success "Your new Carol App was successfull created. Check Carol App documentation to learn more."
 }
 
 main
