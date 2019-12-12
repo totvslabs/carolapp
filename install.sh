@@ -300,7 +300,7 @@ main() {
 
   umask g-w,o-w
 
-  verify_programs curl echo python cookiecutter git xccc
+  verify_programs curl echo python cookiecutter git
 
   # MOTD message :)
   echo "   ____                _${BLUE}    _                ${NORMAL}"
